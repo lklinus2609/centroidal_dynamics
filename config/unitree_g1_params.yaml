@@ -1,0 +1,20 @@
+# Robot parameters
+robot:
+  total_mass: 50.0  # kg
+  dof: 23           # actuated degrees of freedom
+  
+controller:
+  # Linear momentum gains (translational)
+  Gamma_11: [20.0, 10.0, 20.0]  # Velocity feedback
+  Gamma_12: [8.0, 3.0, 8.0]     # Position feedback
+  
+  # Angular momentum gains (rotational)
+  Gamma_21: [10.0, 10.0, 10.0]  # Angular momentum feedback
+
+  
+  # Weight between momentum and posture objectives
+  w_min: 0.3   # Minimum weight (prioritize posture)
+  w_max: 0.7 # Maximum weight (prioritize momentum)
+  
+  # Safety margins
+  cop_safety_margin: 0.02  # meters from edge

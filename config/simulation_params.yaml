@@ -1,0 +1,35 @@
+# Simulation parameters
+simulation:
+  timestep: 0.002      # Simulation timestep (s)
+  duration: 10.0       # Total simulation duration (s)
+  gravity: [0, 0, -9.81]  # Gravity vector
+  
+# Push disturbance
+disturbance:
+  push_time: 2.0       # When to apply the push (s)
+  push_duration: 0.1   # Duration of push (s)
+  push_force: 115.0    # Magnitude of push force (N)
+  push_direction: [1, 0, 0]  # Direction of push (forward)
+  push_location: "COM"  # Apply at Center of Mass
+  
+# Visualization
+visualization:
+  record_video: true
+  video_fps: 30
+  plot_results: true
+
+  # Controller gains (from Lee & Goswami paper)
+controller:
+  # Linear momentum gains (translational)
+  Gamma_11: [40.0, 20.0, 40.0]  # Velocity feedback
+  Gamma_12: [8.0, 3.0, 8.0]     # Position feedback
+  
+  # Angular momentum gains (rotational)
+  Gamma_21: [20.0, 20.0, 20.0]  # Angular momentum feedback
+  
+  # Weight between momentum and posture objectives
+  w_min: 0.0   # Minimum weight (prioritize posture)
+  w_max: 0.999 # Maximum weight (prioritize momentum)
+  
+  # Safety margins
+  cop_safety_margin: 0.02  # meters from edge
